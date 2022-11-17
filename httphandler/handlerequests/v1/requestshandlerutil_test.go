@@ -4,7 +4,6 @@ import (
 	"testing"
 
 	apisv1 "github.com/kubescape/opa-utils/httpserver/apis/v1"
-	utilsmetav1 "github.com/kubescape/opa-utils/httpserver/meta/v1"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -20,7 +19,7 @@ func TestDefaultScanInfo(t *testing.T) {
 }
 
 func TestGetScanCommand(t *testing.T) {
-	req := utilsmetav1.PostScanRequest{
+	req := PostScanRequest{
 		TargetType: apisv1.KindFramework,
 	}
 	s := getScanCommand(&req, "abc")

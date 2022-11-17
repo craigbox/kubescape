@@ -4,14 +4,13 @@ import (
 	"strings"
 
 	apisv1 "github.com/kubescape/opa-utils/httpserver/apis/v1"
-	utilsmetav1 "github.com/kubescape/opa-utils/httpserver/meta/v1"
 	"k8s.io/utils/strings/slices"
 
 	"github.com/kubescape/kubescape/v2/core/cautils"
 	"github.com/kubescape/kubescape/v2/core/cautils/getter"
 )
 
-func ToScanInfo(scanRequest *utilsmetav1.PostScanRequest) *cautils.ScanInfo {
+func ToScanInfo(scanRequest *PostScanRequest) *cautils.ScanInfo {
 	scanInfo := defaultScanInfo()
 
 	setTargetInScanInfo(scanRequest, scanInfo)
@@ -59,7 +58,7 @@ func ToScanInfo(scanRequest *utilsmetav1.PostScanRequest) *cautils.ScanInfo {
 	return scanInfo
 }
 
-func setTargetInScanInfo(scanRequest *utilsmetav1.PostScanRequest, scanInfo *cautils.ScanInfo) {
+func setTargetInScanInfo(scanRequest *PostScanRequest, scanInfo *cautils.ScanInfo) {
 	// remove empty targets from slice
 	scanRequest.TargetNames = slices.Filter(nil, scanRequest.TargetNames, func(e string) bool { return e != "" })
 

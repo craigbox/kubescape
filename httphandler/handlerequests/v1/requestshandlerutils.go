@@ -113,7 +113,7 @@ func findFile(targetDir string, fileName string) (string, error) {
 	return "", nil
 }
 
-func getScanCommand(scanRequest *utilsmetav1.PostScanRequest, scanID string) *cautils.ScanInfo {
+func getScanCommand(scanRequest *PostScanRequest, scanID string) *cautils.ScanInfo {
 
 	scanInfo := ToScanInfo(scanRequest)
 	scanInfo.ScanID = scanID

@@ -100,7 +100,7 @@ func setComplexK8sResourceMap(frameworks []reporthandling.Framework) map[string]
 	return k8sResources
 }
 
-// [group][versionn][resource]
+// [group][version][resource]
 func setComplexKSResourceMap(frameworks []reporthandling.Framework, resourceToControls map[string][]string) map[string]map[string]map[string]interface{} {
 	k8sResources := make(map[string]map[string]map[string]interface{})
 	for _, framework := range frameworks {
